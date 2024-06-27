@@ -1,1 +1,13 @@
-<h2>This is Projects Page</h2>
+<h1>Projects</h1>
+
+<ul>
+  <% @projects.each do |p| %> 
+    <li>
+    	<div class="container">
+    	    <div><%= p.title %></div>
+	        <div><%= p.description %></div>
+	        <div><%= p.technology %></div>
+    	</div>
+    </li>
+  <% end %>
+</ul>

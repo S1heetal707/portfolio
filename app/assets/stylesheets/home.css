@@ -1,7 +1,7 @@
 body{
 	margin: 0px;
 	padding: 0px;
-	background-image: url("image1.jpeg");
+	background-image: url("dummy.avif");
 	background-size: cover;
 	height: 785px;
 	background-position: center;
@@ -25,14 +25,14 @@ h1 {
 }
 
 .topnav {
-  background-color: #333;
+  background-color: #f7f9fa;
   overflow: hidden;
 }
 
 .topnav a {
   float: right;
   display: block;
-  color: #f2f2f2;
+  color: black;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -40,11 +40,11 @@ h1 {
 }
 
 .topnav a:hover {
-  background-color: orangered;
+  background-color: #0fbdf7;
   color: white;
 }
 
 .topnav a.active {
-  background-color: orangered;
+  background-color: #0fbdf7;
   color: white;
 }
