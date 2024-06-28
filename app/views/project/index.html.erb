@@ -1,13 +1,14 @@
+<%= link_to '<button type="button">Back to Home</button>'.html_safe, root_path, class: "home_btn" %>
 <h1>Projects</h1>
 
-<ul>
-  <% @projects.each do |p| %> 
-    <li>
-    	<div class="container">
-    	    <div><%= p.title %></div>
-	        <div><%= p.description %></div>
-	        <div><%= p.technology %></div>
-    	</div>
-    </li>
+<div class="card">
+  <div class="container">
+    <% @projects.each do |p| %> 
+        <div class="container">
+            <div><%= p.title %></div>
+            <div><%= p.description %></div>
+            <div><%= p.technology %></div>
+        </div>
   <% end %>
-</ul>
+  </div>
+</div>
