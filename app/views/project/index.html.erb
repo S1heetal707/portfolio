@@ -1,14 +1,51 @@
-<%= link_to '<button type="button">Back to Home</button>'.html_safe, root_path, class: "home_btn" %>
-<h1>Projects</h1>
-
-<div class="card">
-  <div class="container">
-    <% @projects.each do |p| %> 
-        <div class="container">
-            <div><%= p.title %></div>
-            <div><%= p.description %></div>
-            <div><%= p.technology %></div>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <div class="container my-3">
+    <div class="row justify-content-center">
+      <% @projects.each_with_index do |p, index| %>
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <% if p.image.attached? %>
+              <%= image_tag rails_blob_url(p.image), class: "card-img-top", style: "height: 18rem; object-fit: cover;", alt: p.title %>
+            <% end %>
+            <div class="card-body">
+              <h5 class="card-title"><%= p.title %></h5>
+              <p class="card-text">
+                <%= truncate(p.description, length: 0)%>
+                <span id="dots-<%= index %>">...</span>
+                <span id="more-<%= index %>" style="display: none;">
+                  <%= p.description[200..-1] %>
+                </span>
+              </p>
+              <button onclick="toggleDescription(<%= index %>)" id="myBtn-<%= index %>" class="btn btn-primary">Read more</button>
+              <a href="https://employee-reimbursement-portal-sxej.onrender.com" class="btn btn-primary">Visit Website Here</a>
+            </div>
+          </div>
         </div>
-  <% end %>
+      <% end %>
+    </div>
   </div>
-</div>
+
+  <script>
+    function toggleDescription(index) {
+      var dots = document.getElementById("dots-" + index);
+      var moreText = document.getElementById("more-" + index);
+      var btnText = document.getElementById("myBtn-" + index);
+
+      if (moreText.style.display === "none") {
+        moreText.style.display = "inline";
+        dots.style.display = "none";
+        btnText.innerHTML = "Read less";
+      } else {
+        moreText.style.display = "none";
+        dots.style.display = "inline";
+        btnText.innerHTML = "Read more";
+      }
+    }
+  </script>
+</body>
+</html>
